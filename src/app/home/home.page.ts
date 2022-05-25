@@ -26,8 +26,12 @@ export class HomePage {
 		const boundingRect = element.getBoundingClientRect() as DOMRect;
 
 		let result = await CapacitorGoogleMaps.createMap({
-			element: element,
-			boundingRect: boundingRect,
+			boundingRect: {
+				width: Math.round(boundingRect.width),
+				height: Math.round(boundingRect.height),
+				x: Math.round(boundingRect.x),
+				y: Math.round(boundingRect.y),
+			},
 			cameraPosition: {
 				target: {
 					latitude: 33.6,
